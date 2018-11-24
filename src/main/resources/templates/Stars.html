@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Softeam Prez</title>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js" charset="utf-8"></script>
+	<script src="/js/rater.js" charset="utf-8"></script>
+    <script th:inline="javascript">
+
+        $(document).ready(function(){
+            var hostname = [[${hostName}]];
+            console.log(hostname);
+            var options = {
+                max_value: 5,
+                step_size: 0.5,
+                selected_symbol_type: 'utf8_star',
+                url: decodeURIComponent(hostname),
+                initial_value: 0,
+				change_once: true,
+				ajax_method: 'POST',
+				additional_data: {}
+            }
+            $(".rate").rate(options);
+			$(".rate").on("change", function(ev, data){
+				document.getElementById("demo").innerHTML = 'value is changed';
+			});
+			$(".rate").on("updateError", function(ev, data){
+				document.getElementById("error").innerHTML = 5;
+				console.log(data);
+				
+			});
+        });
+    </script>
+
+    <style>
+        body
+        {
+			position: absolute;
+			left: 200px;
+			top:0px;
+            font-size: 300px;
+            font-family: sans-serif;
+        }
+       .rate
+        {
+			position: relative;
+			left: 190px;
+			top:0px;
+            font-size: 300px;
+            font-family: sans-serif;
+        }
+        .rate-base-layer
+        {
+            color: green;
+        }
+        .rate-hover-layer
+        {
+            color: orange;
+        }
+		.para {
+			position: relative;
+			left: 190px;
+			top:0px;
+            font-size: 100px;
+            font-family: sans-serif;
+		}
+    </style>
+</head>
+<div id="hostName" th:text="${hostName}"></div>
+
+<body>
+<div class="para">
+	<p>Notez La Prez svp :)</p>
+</div>
+<div class="rate"></div>
+<p>la note est de: </p>
+
+<p id="demo"></p>
+<p id="error"></p>
+
+   
+</body>
+</html>
