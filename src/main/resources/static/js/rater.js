@@ -231,12 +231,12 @@
     {
         if (this.settings.url != undefined)
         {
+        	console.log(this.getValue);
             $.ajax({
                 url: this.settings.url,
                 type: this.settings.ajax_method,
                 contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                data: JSON.stringify($.extend({}, { value: this.getValue() }, this.settings.additional_data)),
+                data: JSON.stringify({value: this.getValue()}),
                 success: $.proxy(function(data){
                 	console.log(data);
                     $(this.element).trigger("updateSuccess", [data]);

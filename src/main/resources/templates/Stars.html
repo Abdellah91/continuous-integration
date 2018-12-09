@@ -20,15 +20,20 @@
                 url: decodeURIComponent(hostname),
                 initial_value: 0,
 				change_once: true,
-				ajax_method: 'POST',
-				additional_data: {}
+				only_select_one_symbol: false,
+				ajax_method: 'POST'
             }
             $(".rate").rate(options);
-			$(".rate").on("change", function(ev, data){
-				document.getElementById("demo").innerHTML = 'value is changed';
+			$(".rate").on("updateSuccess", function(ev, data){
+
+				
+				document.getElementsByClassName('rate')[0].style.display = "none";
+				document.getElementsByClassName('para')[0].style.display = "none";
+				document.getElementsByClassName('thanks')[0].style.display = "block";
+						
 			});
 			$(".rate").on("updateError", function(ev, data){
-				document.getElementById("error").innerHTML = 5;
+				document.getElementById("error").innerHTML = "there is an error";
 				console.log(data);
 				
 			});
@@ -51,36 +56,53 @@
 			top:0px;
             font-size: 300px;
             font-family: sans-serif;
+            display: block;
         }
         .rate-base-layer
         {
             color: green;
         }
-        .rate-hover-layer
+        .	rate-hover-layer
         {
             color: orange;
         }
-		.para {
+		.para 
+		{
 			position: relative;
 			left: 190px;
 			top:0px;
             font-size: 100px;
             font-family: sans-serif;
+            display: block;
 		}
+		.thanks
+        {
+			position: relative;
+			left: 190px;
+			top:0px;
+            font-size: 300px;
+            font-family: sans-serif;
+            display: none;
+            
+        }
     </style>
 </head>
-<div id="hostName" th:text="${hostName}"></div>
+<!--  <div id="hostName" th:text="${hostName}"></div> -->
 
 <body>
 <div class="para">
 	<p>Notez La Prez svp :)</p>
 </div>
+
 <div class="rate"></div>
-<p>la note est de: </p>
-
-<p id="demo"></p>
+<div class="thanks">
+	<p>Merci ^^</p>
+</div>
+<!--  
+	<p id="demo"></p>
+	
+-->
 <p id="error"></p>
-
    
 </body>
 </html>
