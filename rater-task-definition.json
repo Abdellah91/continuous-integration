@@ -1,0 +1,19 @@
+{
+  "family": "rater-task-2",
+  "containerDefinitions": [
+    {
+      "name": "web",
+      "image": "abdella/rater:latest",
+      "cpu": 128,
+      "memoryReservation": 128,
+      "portMappings": [
+        {
+          "containerPort": 8881,
+          "protocol": "tcp"
+        }
+      ],
+      "command": [],
+      "essential": true
+    }
+  ]
+}
