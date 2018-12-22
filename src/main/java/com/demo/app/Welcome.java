@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Welcome {    
     @RequestMapping("/")
     public String index() {
-        return "Salut les Gens !!";
+        return "<h2>Hey Softeamiens !!</h2>";
     }
 
 }
