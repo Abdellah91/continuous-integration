@@ -1,8 +1,8 @@
 {
-  "family": "rater-task-2",
+  "family": "rater-task",
   "containerDefinitions": [
     {
-      "name": "web",
+      "name": "rater",
       "image": "abdella/rater:latest",
       "cpu": 128,
       "memoryReservation": 128,

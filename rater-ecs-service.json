@@ -1,11 +1,10 @@
 {
     "cluster": "rater-cluster",
-    "serviceName": "rater-task-service",
-    "taskDefinition": "rater-task-2",
+    "serviceName": "rater-service",
     "loadBalancers": [
         {
-            "targetGroupArn": "arn:aws:elasticloadbalancing:eu-west-3:389133770518:targetgroup/lb-target-group/bd3905b6473393b4",
-            "containerName": "web",
+            "targetGroupArn": "arn:aws:elasticloadbalancing:eu-west-3:389133770518:targetgroup/rater-lb-tg/79de6532f1eb84e5",
+            "containerName": "rater",
             "containerPort": 8881
         }
     ],

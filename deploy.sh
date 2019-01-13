@@ -9,7 +9,6 @@ NAME=$(sed -n 's/.*"name": "\(.*\)",/\1/p' rater-task-definition.json)
 SERVICE_NAME=${NAME}-service
 echo "service name is $SERVICE_NAME"
 
-BUILD_NUMBER=2
 
 aws --profile abdel ecs register-task-definition --cli-input-json file://rater-task-definition.json
 SERVICES=$(aws --profile abdel ecs describe-services --services ${SERVICE_NAME} --cluster ${CLUSTER} | jq .failures[])
