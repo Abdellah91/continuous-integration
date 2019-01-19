@@ -20,7 +20,7 @@ echo "REVISION is $REVISION"
 #Create or update service
 if [ "$SERVICES" == "" ]; then
   echo "entered existing service"
-  aws --profile abdel ecs update-service --cluster ${CLUSTER} --region ${REGION} --service ${SERVICE_NAME} --task-definition ${FAMILY}:${REVISION} --desired-count 3 --deployment-configuration maximumPercent=200,minimumHealthyPercent=100
+  aws --profile abdel ecs update-service --cluster ${CLUSTER} --region ${REGION} --service ${SERVICE_NAME} --task-definition ${FAMILY}:${REVISION} --desired-count 2 --deployment-configuration maximumPercent=200,minimumHealthyPercent=100
 else
   echo "entered new service"
   aws --profile abdel ecs create-service --task-definition ${FAMILY} --cli-input-json file://rater-ecs-service.json
