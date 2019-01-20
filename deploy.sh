@@ -5,7 +5,8 @@ CLUSTER=rater-cluster
 
 FAMILY=$(sed -n 's/.*"family": "\(.*\)",/\1/p' rater-task-definition.json)
 echo "family is $FAMILY"
-NAME=$(sed -n 's/.*"name": "\(.*\)",/\1/p' rater-task-definition.json)
+#NAME=$(sed -n 's/.*"name": "\(.*\)",/\1/p' rater-task-definition.json)
+NAME=$(cat rater-task-definition.json |  jq  -r .containerDefinitions[0].name)
 SERVICE_NAME=${NAME}-service
 echo "service name is $SERVICE_NAME"
 

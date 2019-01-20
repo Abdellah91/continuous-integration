@@ -1,6 +1,6 @@
 {
   "family": "rater-task",
-  "c": [
+  "containerDefinitions": [
     {
       "name": "rater",
       "image": "abdella/rater:latest",
@@ -15,14 +15,14 @@
       "environment": [
         {
           "name": "ECS_AVAILABLE_LOGGING_DRIVERS",
-          "value": "[json-file","awslogs]"
+          "value": "['json-file','awslogs']"
         }
       ],
      "logConfiguration": 
 	{
         "logDriver": "awslogs",
             "options": {
-                "awslogs-group": "rater-lg",
+                "awslogs-group": "rater_lg",
                 "awslogs-region": "eu-west-3",
                 "awslogs-stream-prefix": "awslogs-rater"
              }
