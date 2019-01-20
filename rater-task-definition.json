@@ -12,6 +12,21 @@
           "protocol": "tcp"
         }
       ],
+      "environment": [
+        {
+          "name": "ECS_AVAILABLE_LOGGING_DRIVERS",
+          "value": ["json-file","awslogs"]
+        }
+      ],
+     "logConfiguration": 
+	{
+        "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "rater-lg",
+                "awslogs-region": "eu-west-3",
+                "awslogs-stream-prefix": "awslogs-rater"
+             }
+        },
       "command": [],
       "essential": true
     }
