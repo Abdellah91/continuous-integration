@@ -22,7 +22,7 @@
 	{
         "logDriver": "awslogs",
             "options": {
-                "awslogs-group": "rater_lg",
+                "awslogs-group": "rater-lg",
                 "awslogs-region": "eu-west-3",
                 "awslogs-stream-prefix": "awslogs-rater"
              }
