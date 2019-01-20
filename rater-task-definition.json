@@ -1,6 +1,6 @@
 {
   "family": "rater-task",
-  "containerDefinitions": [
+  "c": [
     {
       "name": "rater",
       "image": "abdella/rater:latest",
@@ -15,7 +15,7 @@
       "environment": [
         {
           "name": "ECS_AVAILABLE_LOGGING_DRIVERS",
-          "value": ["json-file","awslogs"]
+          "value": "[json-file","awslogs]"
         }
       ],
      "logConfiguration": 
